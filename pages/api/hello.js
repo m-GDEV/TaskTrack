@@ -1,5 +1,35 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { MongoClient, ServerApiVersion } from "mongodb";
+const uri = process.env.DB_URL;
+const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: ServerApiVersion.v1,
+});
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+// THIS ALSO WORKS --
+export default async function run(req, res) {
+    try {
+        await client.connect();
+        const coll = client.db("test").collection("dishes");
+
+        // const doc = {
+        //     tile: 12,
+        //     works: "musa",
+        // };
+        //
+        // coll.insertOne(doc);
+
+        // coll.deleteMany();
+
+        await coll
+            .find()
+            .toArray()
+            .then((info) => {
+                // console.log(info);
+                res.send(info);
+            });
+    } finally {
+        // Ensures that the client will close when you finish/error
+        await client.close();
+    }
 }

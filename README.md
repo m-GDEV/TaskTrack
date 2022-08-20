@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TaskTrack
+### The Task Management Platform that's Just Like Other Girls
 
-## Getting Started
+![Demo Image](/demo_image.png)
 
-First, run the development server:
+## What is TaskTrack?
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+TaskTrack is a simple and privacy friendly task management platform
+. TaskTrack is not meant to be very different from other platforms
+like it, rather it is solely being created so that I can learn how to effectively setup a full-stack application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Goals:
+* Make a simple task management platform akin to Todist
+* Methodically create a schema for user data & authentication
+* Learn how to use a Javascript in a full-stack environment
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Features to include:
+* Task management
+* Due dates
+* Should be done by dates
+* Projects
+* Sections
+* Inbox containing the day's tasks
+* Upcoming section
+* Filters / Labels / Tags
+* User authentication and authorization
+* Activity streak?
+* Themes
+* Async update of tasks?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### References
 
-## Learn More
+[Todist.com](https://todoist.com) is where 99% of my inspiration is coming from. 
 
-To learn more about Next.js, take a look at the following resources:
+Datebase Schema:
+- Data
+	- One document per user
+		- User info section
+			- email, password hash, phone number, username
+		- Projects
+			- All tasks in project with section attribute
+		- Miscellaneous
+			- Favourite projects
+			- Settings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Features to implement when building with next Javascript
+- getStaticProps for fetching external data when statically generating at build time
+- selectively use static generation on general pages but not on the dashboard page that shows specific tasks
+- use getServerSideProps to use server side rendering, use this on  the dashboard page
+- 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
