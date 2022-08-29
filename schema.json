@@ -1,0 +1,37 @@
+{
+    "user": {
+        "name": "Musa Ahmed",
+        "username": "m-GDEV",
+        "email": "musaa.ahmed7@gmail.com",
+        "passwordHash": "f359848fa5af41e6972013df237b4b10",
+        "lastLogin": 1661144400,
+        "activityStreak": 4,
+        "darkMode": true
+    },
+    "projects": [
+        {
+            "name": "university",
+            "id": 440334,
+            "color": "#FF0000",
+            "favourite": true
+        }
+    ],
+    "sections": [
+        {
+            "id": 23,
+            "projectId": 440334,
+            "name": "textbooks"
+        }
+    ],
+    "tasks": [
+        {
+            "name": "get textbooks",
+            "projectId": 440334,
+            "sectionId": 23,
+            "section": "textbooks",
+            "due": 1661144400,
+            "doneBy": 1761144400,
+            "tags": ["school, university"]
+        }
+    ]
+}

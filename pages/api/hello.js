@@ -8,6 +8,7 @@ const client = new MongoClient(uri, {
 
 // THIS ALSO WORKS --
 export default async function run(req, res) {
+    console.log("steard");
     try {
         await client.connect();
         const coll = client.db("test").collection("dishes");
