@@ -40,6 +40,9 @@ like it, rather it is solely being created so that I can learn how to effectivel
 -   smart understand recognition when adding tasks
 -   reminders with ntfy.sh
 -   backup, just export the user's json file
+-   setup secutiry rules for db
+-   store dark mode choice in localstorage
+
 
 ### References
 

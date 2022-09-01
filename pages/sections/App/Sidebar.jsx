@@ -3,8 +3,10 @@ import {
     InboxIcon,
     CalendarIcon,
     CogIcon,
-    LogoutIcon,
-} from "@heroicons/react/outline";
+    ArrowRightOnRectangleIcon,
+} from "@heroicons/react/24/outline";
+import Link from "next/link";
+
 import Accordion from "../../components/App/Sidebar/Accordion";
 import AccordionItem from "../../components/App/Sidebar/AccordionItem";
 import SidebarItem from "../../components/App/Sidebar/SidebarItem";
@@ -48,10 +50,14 @@ export default function Sidebar() {
                     Icon={<CogIcon className="h-6" />}
                     text="Settings"
                 />
-                <SidebarItem
-                    Icon={<LogoutIcon className="h-6" />}
-                    text="Logout"
-                />
+                <Link href="/logout">
+                    <a>
+                        <SidebarItem
+                            Icon={<ArrowRightOnRectangleIcon className="h-6" />}
+                            text="Logout"
+                        />
+                    </a>
+                </Link>
             </div>
         </div>
     );

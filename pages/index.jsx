@@ -1,9 +1,9 @@
 import {
-    ClipboardListIcon,
+    ClipboardDocumentListIcon,
     CalendarIcon,
     BellIcon,
-    ArchiveIcon,
-} from "@heroicons/react/outline";
+    ArchiveBoxIcon,
+} from "@heroicons/react/24/outline";
 import { Badge } from "./components/Badge.jsx";
 
 export default function Home() {
@@ -36,7 +36,9 @@ export default function Home() {
                     <div className="flex flex-col">
                         <Badge
                             text="track tasks"
-                            Icon={<ClipboardListIcon className="h-10" />}
+                            Icon={
+                                <ClipboardDocumentListIcon className="h-10" />
+                            }
                         />
                         <Badge
                             text="schedule your day"
@@ -44,7 +46,7 @@ export default function Home() {
                         />
                         <Badge
                             text="organize with projects"
-                            Icon={<ArchiveIcon className="h-10" />}
+                            Icon={<ArchiveBoxIcon className="h-10" />}
                         />
                         <Badge
                             text="receive notifications"

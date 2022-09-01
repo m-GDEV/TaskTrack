@@ -1,4 +1,4 @@
-import { DotsHorizontalIcon } from "@heroicons/react/outline";
+import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 import Task from "./Task";
 
 export default function TaskBoard(props) {
@@ -14,7 +14,7 @@ export default function TaskBoard(props) {
                         {props.tasks}
                     </p>
                 </div>
-                <DotsHorizontalIcon className="h-5" />
+                <EllipsisHorizontalIcon className="h-5" />
             </div>
             <div className="overflow-y-auto h-[57vh] scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-slate-600 pr-4 mt-3">
                 <Task

@@ -1,12 +1,10 @@
 {
-    "user": {
+    "info": {
         "name": "Musa Ahmed",
         "username": "m-GDEV",
         "email": "musaa.ahmed7@gmail.com",
-        "passwordHash": "f359848fa5af41e6972013df237b4b10",
         "lastLogin": 1661144400,
-        "activityStreak": 4,
-        "darkMode": true
+        "activityStreak": 4
     },
     "projects": [
         {

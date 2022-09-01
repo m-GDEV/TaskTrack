@@ -1,9 +1,9 @@
 import {
     StarIcon,
     ShareIcon,
-    DotsHorizontalIcon,
+    EllipsisHorizontalIcon,
     PlusCircleIcon,
-} from "@heroicons/react/outline";
+} from "@heroicons/react/24/outline";
 
 export function Button(props) {
     return (
@@ -29,7 +29,7 @@ export default function Actions() {
                 </div>
                 <StarIcon className="bg-white h-8 px-3 py-2 shadow-md rounded-md text-[#AAADAF] transition-all duration-200 hover:scale-105" />
                 <ShareIcon className="bg-white h-8 px-3 py-2 shadow-md rounded-md text-[#AAADAF] transition-all duration-200 hover:scale-105" />
-                <DotsHorizontalIcon className="bg-white h-8 px-3 py-2 shadow-md rounded-md text-[#AAADAF] transition-all duration-200 hover:scale-105" />
+                <EllipsisHorizontalIcon className="bg-white h-8 px-3 py-2 shadow-md rounded-md text-[#AAADAF] transition-all duration-200 hover:scale-105" />
             </div>
         </div>
     );

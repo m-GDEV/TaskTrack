@@ -2,8 +2,8 @@ import {
     MoonIcon,
     SunIcon,
     ChevronDownIcon,
-    SearchIcon,
-} from "@heroicons/react/outline";
+    MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 export default function AppNavbar() {
@@ -18,7 +18,7 @@ export default function AppNavbar() {
             </div>
             <div className="flex flex-row justify-between ml-[4.5rem] w-full border-b-4 pb-6 border-[#F4F6F8]">
                 <div className="flex flex-row items-center bg-[#F4F6F8] px-4 py-4 text-[#AAADAF] rounded-2xl">
-                    <SearchIcon className="h-6 " />
+                    <MagnifyingGlassIcon className="h-6 " />
                     <input
                         type="search"
                         placeholder="Search..."

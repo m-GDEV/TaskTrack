@@ -1,8 +1,8 @@
 import {
-    ChatIcon,
+    ChatBubbleOvalLeftEllipsisIcon,
     LinkIcon,
-    DotsHorizontalIcon,
-} from "@heroicons/react/outline";
+    EllipsisHorizontalIcon,
+} from "@heroicons/react/24/outline";
 
 function lighten(color, luminosity) {
     // validate hex string
@@ -48,14 +48,14 @@ export default function Task(props) {
                 <h3 className="font-bold font-poppins break-normal">
                     {props.title}
                 </h3>
-                <DotsHorizontalIcon className="h-5" />
+                <EllipsisHorizontalIcon className="h-5" />
             </div>
             <p className="text-sm break-normal font-dm-sans text-[#AAADAF] mt-0.5">
                 {props.subheading}
             </p>
             <div className="flex justify-between mt-4 text-[#AAADAF] text-sm items-center font-bold">
                 <div className="flex">
-                    <ChatIcon className="h-5 mr-1" />
+                    <ChatBubbleOvalLeftEllipsisIcon className="h-5 mr-1" />
                     <p>{props.comments}</p>
                     <LinkIcon className="ml-2 h-5 mr-1" />
                     <p>{props.links}</p>
