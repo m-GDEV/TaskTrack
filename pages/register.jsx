@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import { useState } from "react";
@@ -38,22 +38,37 @@ export default function Register() {
     }
 
     function checkUsername(username) {
-        get(child(dbRef, `usernames/`))
+        const check = get(child(dbRef, `usernames/`))
             .then((snapshot) => {
                 if (snapshot.exists()) {
-                    // for loop
+                    const usernames = Object.entries(snapshot);
+                    let match = false;
+
+                    for (let i = 0; i < usernames.length; i++) {
+                        if ((usernames[i][1], username == username)) {
+                            toast.error(
+                                "Username already in use! Please select another one."
+                            );
+                            match = true;
+                            break;
+                        }
+                    }
+                    return match;
                 } else {
-                    // error toast
+                    console.log("Snapshot does not exist");
                 }
             })
             .catch((err) => {
                 console.log(err);
             });
+
+        check.then((match) => {
+            return match;
+        });
     }
 
     return (
         <div className="min-h-screen bg-mp text-center pt-16">
-            <Toaster />
             <h1 className="text-4xl font-cabin text-lw mb-8">
                 Welcome to tasktrack, please register below
             </h1>
@@ -102,7 +117,13 @@ export default function Register() {
                     type="submit"
                     className="bg-mp border-4 border-dp mt-2 px-3 py-2 text-gray-200 rounded-xl transition-all duration-300 hover:bg-lp text-xl font-bold"
                     onClick={() => {
-                        if (name && email && username && pass) {
+                        if (
+                            name &&
+                            email &&
+                            username &&
+                            pass &&
+                            checkUsername(username)
+                        ) {
                             createUserWithEmailAndPassword(auth, email, pass)
                                 .then((userCredential) => {
                                     const user = userCredential.user;
