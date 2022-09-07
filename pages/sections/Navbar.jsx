@@ -30,7 +30,7 @@ function Nav() {
                         </a>
                     </div>
                     <div className="flex flex-row p-2 gap-4 items-center">
-                        <Link href="/app">
+                        <Link href="/login">
                             <a className="bg-cb px-7 py-2.5 rounded-xl text-tlb hover:text-white transition-all duration-300">
                                 login
                             </a>

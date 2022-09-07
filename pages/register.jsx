@@ -74,7 +74,7 @@ export default function Register() {
             </h1>
             <form
                 onSubmit={(e) => e.preventDefault()}
-                className="flex flex-col justify-center w-6/12 mx-auto gap-2 "
+                className="flex flex-col justify-center w-fit mx-auto gap-2 "
             >
                 <input
                     placeholder="Email"

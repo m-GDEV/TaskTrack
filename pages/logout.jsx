@@ -23,7 +23,7 @@ export default function Logout() {
     }, []);
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-mp">
             <Toaster />
         </div>
     );
