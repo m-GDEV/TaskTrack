@@ -37,7 +37,9 @@ export default function Task(props) {
 
     return (
         <div className="bg-[#FFFEFE] rounded-lg mb-4 p-4 shadow-lg w-72">
-            <img src={props.image} className="max-w-full h-36 rounded-xl" />
+            {props.image && (
+                <img src={props.image} className="max-w-full h-36 rounded-xl" />
+            )}
             <button
                 className={`px-4 py-1 font-dm-sans rounded-lg  transition-all duration-200 cursor-pointer font-bold text-sm mt-3 hover:scale-105`}
                 style={rstyle}

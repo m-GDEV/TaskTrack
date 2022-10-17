@@ -42,7 +42,23 @@ like it, rather it is solely being created so that I can learn how to effectivel
 -   backup, just export the user's json file
 -   setup secutiry rules for db
 -   store dark mode choice in localstorage
-
+-   add "add task" button to <TaskBoard /> component
+-   change which info is showed on individual task
+-   Schema
+    -   add description for each projeect
+    -   add description for tasks when adding them
+    -   color for each task (set one by default, change it when selecting task)
+-   when route is "/app/[pid]" fix what the document title is
+-   clicking on inbox should route to "/app", this should be the default page
+-   clicking the logo should just go to /app
+-   make drop down when clicking on name
+-   implement dark theme
+    -   make toggle work
+    -   use daycula colors
+-   implement search bar (maybe? idk seems complicated)
+-   inbox should be a project in and of itself
+-   today should show all of today's tasks
+-   implement modal for editing tasks (or maybe just do it inplace)
 
 ### References
 

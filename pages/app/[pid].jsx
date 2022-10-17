@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 
-import AppNavbar from "./sections/App/AppNavbar.jsx";
-import Sidebar from "./sections/App/Sidebar.jsx";
-import Main from "./sections/App/Main.jsx";
+import AppNavbar from "../sections/App/AppNavbar.jsx";
+import Sidebar from "../sections/App/Sidebar.jsx";
+import Main from "../sections/App/Main.jsx";
 
 export default function App({ children }) {
     const auth = getAuth();
@@ -54,7 +54,10 @@ export default function App({ children }) {
                 <AppNavbar data={userData} />
                 <div className="flex flex-row grow w-full">
                     <Sidebar data={userData} />
-                    {/*put default shit here */}
+                    <Main
+                        project={window.location.pathname.slice(5)}
+                        data={userData}
+                    />
                 </div>
             </div>
         );

@@ -1,9 +1,9 @@
-export default function Header() {
+export default function Header(props) {
     return (
         <div className="flex flex-row mt-4 font-dm-sans items-center justify-between">
             <div>
                 <h1 className="text-4xl font-poppins font-bold">
-                    Fenisha Design
+                    {props.name}
                 </h1>
                 <p className="mt-2 text-lg text-[#AAADAF]">
                     Create furniture website using the guide that has been
