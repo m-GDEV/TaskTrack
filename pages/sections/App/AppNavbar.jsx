@@ -6,7 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-export default function AppNavbar() {
+export default function AppNavbar(props) {
     return (
         <div className="flex flex-row justify-between items-end mt-6 mx-6">
             <div className="flex flex-row items-center">
@@ -16,7 +16,10 @@ export default function AppNavbar() {
                     </a>
                 </Link>
             </div>
-            <div className="flex flex-row justify-between ml-[4.5rem] w-full border-b-4 pb-6 border-[#F4F6F8]">
+            <div
+                className="flex flex-row justify-between ml-[4.5rem] w-full border-b-4 pb-6 border-[#F4F6F8]"
+                onLoad={console.log()}
+            >
                 <div className="flex flex-row items-center bg-[#F4F6F8] px-4 py-4 text-[#AAADAF] rounded-2xl">
                     <MagnifyingGlassIcon className="h-6 " />
                     <input
@@ -33,10 +36,10 @@ export default function AppNavbar() {
                     </div>
                     <div className="flex flex-row items-center py-2.5 px-3 rounded-2xl text-[#AAADAF] hover:text-[#808283] font-bold transition-all duration-300 cursor-pointer">
                         <img
-                            src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png"
-                            className="h-9"
+                            src={props.data.info.profileImage}
+                            className="h-10 border-[#418cfd] border-2 rounded-full p-0.5"
                         />
-                        <p className="ml-2">Musa Ahmed</p>
+                        <p className="ml-2">{props.data.info.name}</p>
                         <ChevronDownIcon className="h-7 ml-2" />
                     </div>
                 </div>

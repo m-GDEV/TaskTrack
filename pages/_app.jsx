@@ -4,6 +4,7 @@ import Footer from "./sections/Footer";
 import Head from "next/head";
 import { initializeApp } from "firebase/app";
 import { Toaster } from "react-hot-toast";
+import Sidebar from "./sections/App/Sidebar.jsx";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBp8pVriDep_GPDaHL7WzRmzWSxqRo-QU4",

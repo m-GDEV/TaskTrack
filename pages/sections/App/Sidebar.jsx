@@ -11,7 +11,7 @@ import Accordion from "../../components/App/Sidebar/Accordion";
 import AccordionItem from "../../components/App/Sidebar/AccordionItem";
 import SidebarItem from "../../components/App/Sidebar/SidebarItem";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
     return (
         <div className="flex flex-col pl-6 -mt-1 justify-between shadow-sm">
             <div className="flex flex-col gap-2 ">
@@ -32,16 +32,26 @@ export default function Sidebar() {
                 </div>
                 <div className="pl-3 ">
                     <Accordion title="Favourites">
-                        <AccordionItem color="#FF0000" text="University" />
-                        <AccordionItem color="#9629D6" text="Tech" />
-                        <AccordionItem color="#0D4F8B" text="Personal" />
+                        {props.data.projects.map((project) => {
+                            if (project.favourite == true) {
+                                return (
+                                    <AccordionItem
+                                        color={project.color}
+                                        text={project.name}
+                                    />
+                                );
+                            }
+                        })}
                     </Accordion>
                     <Accordion title="Projects">
-                        <AccordionItem color="#FF0000" text="University" />
-                        <AccordionItem color="#9629D6" text="Tech" />
-                        <AccordionItem color="#0D4F8B" text="Personal" />
-                        <AccordionItem color="#c1973e" text="Gaming" />
-                        <AccordionItem color="#2fd09a" text="zMisc ." />
+                        {props.data.projects.map((project) => {
+                            return (
+                                <AccordionItem
+                                    color={project.color}
+                                    text={project.name}
+                                />
+                            );
+                        })}
                     </Accordion>
                 </div>
             </div>

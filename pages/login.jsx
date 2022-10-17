@@ -1,6 +1,10 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+} from "firebase/auth";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 export default function Register() {
@@ -9,6 +13,15 @@ export default function Register() {
 
     const router = useRouter();
     const auth = getAuth();
+
+    // if user is already logged in, redirect to /app imediately
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                router.push("/app");
+            }
+        });
+    }, []);
 
     return (
         <div className="min-h-screen bg-mp text-center pt-16">

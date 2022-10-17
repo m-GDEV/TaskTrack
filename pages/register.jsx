@@ -1,19 +1,26 @@
 import toast from "react-hot-toast";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, set, child, get } from "firebase/database";
-import { useState } from "react";
+import { getDatabase, ref, set, onValue } from "firebase/database";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function Register() {
     const auth = getAuth();
     const db = getDatabase();
-    const dbRef = ref(db);
     const router = useRouter();
 
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
+    const [usernames, setUsernames] = useState({}); // read db
+
+    useEffect(() => {
+        onValue(ref(db, "usernames/"), (snapshot) => {
+            const data = snapshot.val();
+            setUsernames(data);
+        });
+    }, []);
 
     function generateUserInfo(uid, name, username, email, emailVerified) {
         set(ref(db, "users/" + uid), {
@@ -29,6 +36,32 @@ export default function Register() {
                 lastLogin: Math.trunc(Date.now() / 1000),
                 activityStreak: 1,
             },
+            projects: [
+                {
+                    name: "Introduction",
+                    id: 0,
+                    color: "#FF0000",
+                    favourite: true,
+                },
+            ],
+            sections: [
+                {
+                    id: 0,
+                    projectId: 0,
+                    name: "textbooks",
+                },
+            ],
+            tasks: [
+                {
+                    name: "get textbooks",
+                    id: 0,
+                    projectId: 0,
+                    sectionId: 0,
+                    due: 1661144400,
+                    doneBy: 1761144400,
+                    tags: ["school, university"],
+                },
+            ],
         });
 
         set(ref(db, "usernames/" + uid), {
@@ -37,34 +70,17 @@ export default function Register() {
         });
     }
 
-    function checkUsername(username) {
-        const check = get(child(dbRef, `usernames/`))
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                    const usernames = Object.entries(snapshot);
-                    let match = false;
+    function checkUsername() {
+        let match = false;
+        const usernamesArr = Object.entries(usernames);
 
-                    for (let i = 0; i < usernames.length; i++) {
-                        if ((usernames[i][1], username == username)) {
-                            toast.error(
-                                "Username already in use! Please select another one."
-                            );
-                            match = true;
-                            break;
-                        }
-                    }
-                    return match;
-                } else {
-                    console.log("Snapshot does not exist");
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-
-        check.then((match) => {
-            return match;
-        });
+        for (let i = 0; i < usernamesArr.length; i++) {
+            if (usernamesArr[i][1].username == username) {
+                match = true;
+                break;
+            }
+        }
+        return match;
     }
 
     return (
@@ -122,7 +138,7 @@ export default function Register() {
                             email &&
                             username &&
                             pass &&
-                            checkUsername(username)
+                            !checkUsername() // if match is false
                         ) {
                             createUserWithEmailAndPassword(auth, email, pass)
                                 .then((userCredential) => {
@@ -153,8 +169,14 @@ export default function Register() {
                                         "Error! " + errCode + " : " + errMes
                                     );
                                 });
+                        } else if (checkUsername()) {
+                            toast.error(
+                                "Username already in use! Please select another one."
+                            );
                         } else {
-                            toast.error("Please fill out all fields.");
+                            toast.error(
+                                "Please fill out all fields correctly."
+                            );
                         }
                     }}
                 >
