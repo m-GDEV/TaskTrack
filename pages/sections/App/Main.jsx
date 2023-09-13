@@ -11,11 +11,12 @@ export default function Main(props) {
         <div className="flex flex-col w-full overflow-x-auto">
             <div className="pl-8 mr-6">
                 <Header name={props.project} />
-                <Actions />
+                <Actions data={props.data} />
             </div>
             <div className="bg-[#FAFBFB] h-full p-10 flex mt-4 gap-4 overflow-x-scrollbar scrollbar scrollbar-thumb-blue-900 scrollbar-track-slate-600">
                 {sections.map((section) => {
                     let SectionTasks = [];
+                    console.log(section);
 
                     for (let i = 0; i < tasks.length; i++) {
                         if (tasks[i].sectionId == section.id) {
@@ -33,7 +34,7 @@ export default function Main(props) {
                         }
                     }
                     return (
-                        <TaskBoard title={section.name}>
+                        <TaskBoard title={section.name} section={section}>
                             {SectionTasks}
                         </TaskBoard>
                     );

@@ -12,6 +12,8 @@ import AccordionItem from "../../components/App/Sidebar/AccordionItem";
 import SidebarItem from "../../components/App/Sidebar/SidebarItem";
 
 export default function Sidebar(props) {
+    console.log(props.data.projects);
+
     return (
         <div className="flex flex-col pl-6 -mt-1 justify-between shadow-sm">
             <div className="flex flex-col gap-2 ">
@@ -32,7 +34,7 @@ export default function Sidebar(props) {
                 </div>
                 <div className="pl-3 ">
                     <Accordion title="Favourites">
-                        {props.data.projects.map((project) => {
+                        {Object.values(props.data.projects).map((project) => {
                             if (project.favourite == true) {
                                 return (
                                     <AccordionItem
@@ -43,8 +45,8 @@ export default function Sidebar(props) {
                             }
                         })}
                     </Accordion>
-                    <Accordion title="Projects">
-                        {props.data.projects.map((project) => {
+                    <Accordion title="Projects" data={props.data}>
+                        {Object.values(props.data.projects).map((project) => {
                             return (
                                 <AccordionItem
                                     color={project.color}

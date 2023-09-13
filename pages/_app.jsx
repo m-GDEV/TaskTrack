@@ -21,10 +21,16 @@ const app = initializeApp(firebaseConfig);
 
 function App({ Component, pageProps, router }) {
     const Route = router.pathname.startsWith("/app");
-    const route = router.pathname.slice(1);
-    const title = `${
-        route.charAt(0).toUpperCase() + route.slice(1)
-    } ~  📝 tasktrack`;
+    let title;
+
+    if (router.pathname == "/app") {
+        title = "App ~ 📝 tasktrack";
+    } else if (router.query.pid != undefined) {
+        title = `${router.query.pid} ~  📝 tasktrack`;
+    } else {
+        // when ur on any non /app page
+        title = "📝 tasktrack";
+    }
 
     if (Route) {
         return (

@@ -4,6 +4,7 @@ import {
     EllipsisHorizontalIcon,
     PlusCircleIcon,
 } from "@heroicons/react/24/outline";
+import { AddTask } from "./AddX.jsx";
 
 export function Button(props) {
     return (
@@ -13,7 +14,7 @@ export function Button(props) {
     );
 }
 
-export default function Actions() {
+export default function Actions({ data }) {
     return (
         <div className="flex flex-row mt-5 justify-between font-dm-sans">
             <div className="flex gap-8">
@@ -23,10 +24,7 @@ export default function Actions() {
                 <Button text="Report" />
             </div>
             <div className="flex gap-4 items-center">
-                <div className="font-cabin text-[#FFFEFE] bg-[#418CFD] flex gap-3 py-2 px-4 rounded-lg">
-                    <PlusCircleIcon className="h-6" />
-                    <button>Add New Task</button>
-                </div>
+                <AddTask data={data} />
                 <StarIcon className="bg-white h-8 px-3 py-2 shadow-md rounded-md text-[#AAADAF] transition-all duration-200 hover:scale-105" />
                 <ShareIcon className="bg-white h-8 px-3 py-2 shadow-md rounded-md text-[#AAADAF] transition-all duration-200 hover:scale-105" />
                 <EllipsisHorizontalIcon className="bg-white h-8 px-3 py-2 shadow-md rounded-md text-[#AAADAF] transition-all duration-200 hover:scale-105" />

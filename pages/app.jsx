@@ -54,7 +54,15 @@ export default function App({ children }) {
                 <AppNavbar data={userData} />
                 <div className="flex flex-row grow w-full">
                     <Sidebar data={userData} />
-                    {/*put default shit here */}
+                    <div className="px-6 py-8 border-l-4 bg-gray-300 w-full">
+                        <h1 className="text-5xl font-carter-one text-cb ">
+                            Hi There!
+                        </h1>
+                        <p className="pt-4 text-2xl font-cabin text-gray-800 ">
+                            Welcome to TaskTrack! Please select a project on the
+                            left to get started!
+                        </p>
+                    </div>
                 </div>
             </div>
         );
