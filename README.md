@@ -2,7 +2,7 @@
 
 ### The Task Management Platform that's Just Like Other Girls
 
-![Demo Image](/demo_image.png)
+![Demo Image](/docs/demo_image.png)
 
 ## What is TaskTrack?
 
