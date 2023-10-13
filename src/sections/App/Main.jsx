@@ -29,12 +29,17 @@ export default function Main(props) {
                                     comments="50"
                                     links="19"
                                     color={props.color}
+                                    key={tasks[i].name + i}
                                 />
                             );
                         }
                     }
                     return (
-                        <TaskBoard title={section.name} section={section} key={section.name}>
+                        <TaskBoard
+                            title={section.name}
+                            section={section}
+                            key={section.name}
+                        >
                             {SectionTasks}
                         </TaskBoard>
                     );

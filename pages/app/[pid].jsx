@@ -10,53 +10,56 @@ import Sidebar from "../../src/sections/App/Sidebar.jsx";
 import Main from "../../src/sections/App/Main.jsx";
 
 export default function App({ children }) {
-  const auth = getAuth();
-  const router = useRouter();
+    const auth = getAuth();
+    const router = useRouter();
 
-  const db = getDatabase();
+    const db = getDatabase();
 
-  const [userData, setUserData] = useState({});
-  const [loading, setLoading] = useState(true);
+    const [userData, setUserData] = useState({});
+    const [loading, setLoading] = useState(true);
 
-  useEffect((auth, router, db) => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const userInfoRef = ref(db, "users/" + user.uid);
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const userInfoRef = ref(db, "users/" + user.uid);
 
-        setTimeout(() => {}, 500);
-        onValue(userInfoRef, (snapshot) => {
-          const data = snapshot.val();
-          setUserData(data);
+                setTimeout(() => {}, 500);
+                onValue(userInfoRef, (snapshot) => {
+                    const data = snapshot.val();
+                    setUserData(data);
+                });
+            } else {
+                setTimeout(() => {
+                    toast.error("You're not logged in, redirecting...");
+                    router.push("/");
+                }, 500);
+            }
         });
-      } else {
-        setTimeout(() => {
-          toast.error("You're not logged in, redirecting...");
-          router.push("/");
-        }, 500);
-      }
-    });
-  }, []);
+    }, []);
 
-  useEffect(() => {
-    setLoading(false);
-  }, [userData]);
+    useEffect(() => {
+        setLoading(false);
+    }, [userData]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex flex-row place-items-center justify-center text-dp">
-        <ArrowPathIcon className="mr-2 h-9 animate-spin" />
-        <h1 className="text-4xl ">Loading...</h1>
-      </div>
-    );
-  } else if (!loading && Object.keys(userData).length != 0) {
-    return (
-      <div className="bg-[#FFFEFE] h-screen overflow-x-hidden flex flex-col">
-        <AppNavbar data={userData} />
-        <div className="flex flex-row grow w-full">
-          <Sidebar data={userData} />
-          <Main project={window.location.pathname.slice(5)} data={userData} />
-        </div>
-      </div>
-    );
-  }
+    if (loading) {
+        return (
+            <div className="min-h-screen flex flex-row place-items-center justify-center text-dp">
+                <ArrowPathIcon className="mr-2 h-9 animate-spin" />
+                <h1 className="text-4xl ">Loading...</h1>
+            </div>
+        );
+    } else if (!loading && Object.keys(userData).length != 0) {
+        return (
+            <div className="bg-[#FFFEFE] h-screen overflow-x-hidden flex flex-col">
+                <AppNavbar data={userData} />
+                <div className="flex flex-row grow w-full">
+                    <Sidebar data={userData} />
+                    <Main
+                        project={window.location.pathname.slice(5)}
+                        data={userData}
+                    />
+                </div>
+            </div>
+        );
+    }
 }

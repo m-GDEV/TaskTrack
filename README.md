@@ -60,6 +60,10 @@ like it, rather it is solely being created so that I can learn how to effectivel
 -   today should show all of today's tasks
 -   implement modal for editing tasks (or maybe just do it inplace)
 
+### MANDATORY CHANGES BEFORE ALPHA
+
+-   Change hardcorded values in Main.jsx when creating <Task/> objects
+
 ### References
 
 [Todist.com](https://todoist.com) is where 99% of my inspiration is coming from.

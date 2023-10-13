@@ -33,7 +33,8 @@ export default function Sidebar(props) {
                     />
                 </div>
                 <div className="pl-3 ">
-                    <Accordion title="Favourites">
+                    {/* Loop through projects and only display the favourties*/}
+                    <Accordion title="Favourites" data={props.data}>
                         {Object.values(props.data.projects).map((project) => {
                             if (project.favourite == true) {
                                 return (
@@ -46,16 +47,19 @@ export default function Sidebar(props) {
                             }
                         })}
                     </Accordion>
+                    {/* Loop through projects and display them */}
                     <Accordion title="Projects" data={props.data}>
-                        {Object.values(props.data.projects).map((project) => {
-                            return (
-                                <AccordionItem
-                                    color={project.color}
-                                    text={project.name}
-                                    key={project.name}
-                                />
-                            );
-                        })}
+                        {Object.values(props.data.projects).map(
+                            (project, index) => {
+                                return (
+                                    <AccordionItem
+                                        color={project.color}
+                                        text={project.name}
+                                        key={project.name + index}
+                                    />
+                                );
+                            }
+                        )}
                     </Accordion>
                 </div>
             </div>
