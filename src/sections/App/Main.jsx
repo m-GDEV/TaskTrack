@@ -34,7 +34,7 @@ export default function Main(props) {
                         }
                     }
                     return (
-                        <TaskBoard title={section.name} section={section}>
+                        <TaskBoard title={section.name} section={section} key={section.name}>
                             {SectionTasks}
                         </TaskBoard>
                     );

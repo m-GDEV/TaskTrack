@@ -6,3 +6,11 @@ export const Badge = (props) => {
         </div>
     );
 };
+
+export default function nextJsNeedDefaultReactComponent() {
+    return (
+        <>
+            <h1> This is probably faster than disabalijng the rule </h1>
+        </>
+    );
+}

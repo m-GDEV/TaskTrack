@@ -142,6 +142,14 @@ export function AddTask({ data }) {
     );
 }
 
+export default function nextJsNeedDefaultReactComponent() {
+    return (
+        <>
+            <h1> This is probably faster than disabalijng the rule </h1>
+        </>
+    );
+}
+
 // THIS I WANT TO DO FOR THIS PROJECT RELATIVELY SOON
 // finish core functionality
 //     - adding projects, sections, tasks

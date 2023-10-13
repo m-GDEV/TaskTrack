@@ -40,6 +40,7 @@ export default function Sidebar(props) {
                                     <AccordionItem
                                         color={project.color}
                                         text={project.name}
+                                        key={project.name}
                                     />
                                 );
                             }
@@ -51,6 +52,7 @@ export default function Sidebar(props) {
                                 <AccordionItem
                                     color={project.color}
                                     text={project.name}
+                                    key={project.name}
                                 />
                             );
                         })}

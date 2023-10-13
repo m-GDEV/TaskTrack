@@ -72,3 +72,11 @@ Features to implement when building with next Javascript
 -   selectively use static generation on general pages but not on the dashboard page that shows specific tasks
 -   use getServerSideProps to use server side rendering, use this on the dashboard page
 -   when you click the dot in the projects on the sidebar, open a color picker that allows the user to set a color for the project
+
+### Notes
+
+-   Folder structure is as follows:
+    -   pages/
+    -   src/
+        -   sections/
+        -   components/

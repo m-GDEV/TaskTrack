@@ -25,9 +25,9 @@ function Nav() {
                         <a className="hover:underline" href="/changelog">
                             changelog
                         </a>
-                        <a className="hover:underline" href="/about">
+                        <Link className="hover:underline" href="/about">
                             about
-                        </a>
+                        </Link>
                     </div>
                     <div className="flex flex-row p-2 gap-4 items-center">
                         <Link href="/login">

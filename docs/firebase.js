@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "tasktrack-38280.appspot.com",
   messagingSenderId: "989803060030",
   appId: "1:989803060030:web:1f3a289c4a96c03467aa6f",
-  measurementId: "G-J75MWE9PQD"
+  measurementId: "G-J75MWE9PQD",
 };
 
 // Initialize Firebase
