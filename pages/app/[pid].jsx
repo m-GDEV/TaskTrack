@@ -55,7 +55,7 @@ export default function App({ children }) {
                 <div className="flex flex-row grow w-full">
                     <Sidebar data={userData} />
                     <Main
-                        project={window.location.pathname.slice(5)}
+                        projectId={window.location.pathname.slice(5)}
                         data={userData}
                     />
                 </div>

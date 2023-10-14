@@ -12,7 +12,7 @@ import AccordionItem from "../../components/App/Sidebar/AccordionItem";
 import SidebarItem from "../../components/App/Sidebar/SidebarItem";
 
 export default function Sidebar(props) {
-    console.log(props.data.projects);
+    // console.log(props.data.projects);
 
     return (
         <div className="flex flex-col pl-6 -mt-1 justify-between shadow-sm">
@@ -41,7 +41,9 @@ export default function Sidebar(props) {
                                     <AccordionItem
                                         color={project.color}
                                         text={project.name}
-                                        key={project.name}
+                                        id={project.id}
+                                        name={project.name}
+                                        key={project.id}
                                     />
                                 );
                             }
@@ -49,17 +51,18 @@ export default function Sidebar(props) {
                     </Accordion>
                     {/* Loop through projects and display them */}
                     <Accordion title="Projects" data={props.data}>
-                        {Object.values(props.data.projects).map(
-                            (project, index) => {
-                                return (
-                                    <AccordionItem
-                                        color={project.color}
-                                        text={project.name}
-                                        key={project.name + index}
-                                    />
-                                );
-                            }
-                        )}
+                        {Object.values(props.data.projects).map((project) => {
+                            return (
+                                <AccordionItem
+                                    color={project.color}
+                                    text={project.name}
+                                    id={project.id}
+                                    name={project.name}
+                                    key={project.id}
+                                />
+                            );
+                        })}
+                        <AccordionItem text="invalid" id="notpossible" />
                     </Accordion>
                 </div>
             </div>

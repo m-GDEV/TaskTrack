@@ -63,6 +63,8 @@ like it, rather it is solely being created so that I can learn how to effectivel
 ### MANDATORY CHANGES BEFORE ALPHA
 
 -   Change hardcorded values in Main.jsx when creating <Task/> objects
+-   Give projects a default colour value
+-
 
 ### References
 
@@ -84,3 +86,4 @@ Features to implement when building with next Javascript
     -   src/
         -   sections/
         -   components/
+    -   Accordion Item -> Main -> Check if project id valid -> Handles
